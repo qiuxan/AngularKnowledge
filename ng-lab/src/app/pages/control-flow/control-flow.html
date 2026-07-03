@@ -1,1 +1,48 @@
-<p>control-flow works!</p>
+<section class="page">
+  <h2>Control Flow: &#64;if / &#64;for / track</h2>
+
+  <p>
+    This page demonstrates Angular's built-in template control flow syntax.
+  </p>
+
+  <div class="demo-card">
+    <h3>Task List</h3>
+
+    <div class="actions">
+      <button type="button" (click)="addTask()">Add Task</button>
+      <button type="button" (click)="clearTasks()">Clear</button>
+      <button type="button" (click)="resetTasks()">Reset</button>
+    </div>
+
+    @if (tasks().length === 0) {
+      <p>No tasks available.</p>
+    } @else {
+      <ul class="task-list">
+        @for (task of tasks(); track task.id) {
+          <li>
+            <label>
+              <input
+                type="checkbox"
+                [checked]="task.done"
+                (change)="toggleTask(task.id)"
+              />
+              <span [class.done]="task.done">{{ task.title }}</span>
+            </label>
+
+            <button type="button" (click)="removeTask(task.id)">Remove</button>
+          </li>
+        }
+      </ul>
+    }
+  </div>
+
+  <div class="notes">
+    <h3>Notes</h3>
+
+    <ul>
+      <li><strong>&#64;if</strong> conditionally renders a block.</li>
+      <li><strong>&#64;for</strong> renders a list.</li>
+      <li><strong>track</strong> gives Angular a stable identity for each item.</li>
+    </ul>
+  </div>
+</section>
