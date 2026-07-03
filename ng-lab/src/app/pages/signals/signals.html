@@ -1,1 +1,29 @@
-<p>signals works!</p>
+<section class="page">
+  <h2>Signals: signal / computed / effect</h2>
+
+  <p>
+    This page demonstrates the three core Angular Signals APIs:
+    signal, computed, and effect.
+  </p>
+
+  <div class="demo-card">
+    <h3>Demo</h3>
+
+    <p>Count: {{ count() }}</p>
+    <p>Double Count: {{ doubleCount() }}</p>
+
+    <button type="button" (click)="decrease()">-1</button>
+    <button type="button" (click)="increase()">+1</button>
+    <button type="button" (click)="reset()">Reset</button>
+  </div>
+
+  <div class="notes">
+    <h3>Notes:</h3>
+
+    <ul>
+      <li><strong>signal</strong> stores reactive state.</li>
+      <li><strong>computed</strong> derives a value from one or more signals.</li>
+      <li><strong>effect</strong> runs side effects when its dependencies change.</li>
+    </ul>
+  </div>
+</section>
