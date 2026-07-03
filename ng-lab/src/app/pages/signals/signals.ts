@@ -11,6 +11,20 @@ export class Signals {
 
   doubleCount = computed(() => this.count() * 2);
 
+  countLabel = computed(() => {
+    const value = this.count();
+
+    if (value > 0) {
+      return 'Positive';
+    }
+
+    if (value < 0) {
+      return 'Negative';
+    }
+
+    return 'Zero';
+  });
+
   constructor() {
     effect(() => {
       console.log('count changed:', this.count());

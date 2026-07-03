@@ -1,16 +1,14 @@
 <section class="page">
   <h2>Signals: signal / computed / effect</h2>
 
-  <p>
-    This page demonstrates the three core Angular Signals APIs:
-    signal, computed, and effect.
-  </p>
+  <p>This page demonstrates the three core Angular Signals APIs: signal, computed, and effect.</p>
 
   <div class="demo-card">
     <h3>Demo</h3>
 
     <p>Count: {{ count() }}</p>
     <p>Double Count: {{ doubleCount() }}</p>
+    <p>Status: {{ countLabel() }}</p>
 
     <button type="button" (click)="decrease()">-1</button>
     <button type="button" (click)="increase()">+1</button>
