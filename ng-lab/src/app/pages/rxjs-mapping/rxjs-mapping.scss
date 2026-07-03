@@ -1,0 +1,13 @@
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.log-list {
+  display: grid;
+  gap: 6px;
+  padding-left: 24px;
+  font-family: monospace;
+}

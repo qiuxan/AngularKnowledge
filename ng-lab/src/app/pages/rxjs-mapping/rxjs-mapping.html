@@ -1,1 +1,42 @@
-<p>rxjs-mapping works!</p>
+<section class="page">
+  <h2>RxJS Mapping Operators</h2>
+
+  <p>
+    This page compares switchMap, mergeMap, and concatMap with simulated async requests.
+  </p>
+
+  <div class="demo-card">
+    <h3>Current Mode: {{ mode() }}</h3>
+
+    <div class="actions">
+      <button type="button" (click)="setMode('switchMap')">switchMap</button>
+      <button type="button" (click)="setMode('mergeMap')">mergeMap</button>
+      <button type="button" (click)="setMode('concatMap')">concatMap</button>
+    </div>
+
+    <div class="actions">
+      <button type="button" (click)="runRequest()">Run Request</button>
+      <button type="button" (click)="clearLogs()">Clear Logs</button>
+    </div>
+
+    @if (logs().length === 0) {
+      <p>No logs yet. Click "Run Request" several times quickly.</p>
+    } @else {
+      <ol class="log-list">
+        @for (log of logs(); track log) {
+          <li>{{ log }}</li>
+        }
+      </ol>
+    }
+  </div>
+
+  <div class="notes">
+    <h3>Notes</h3>
+
+    <ul>
+      <li><strong>switchMap</strong> cancels the previous inner subscription and keeps the latest one.</li>
+      <li><strong>mergeMap</strong> runs inner subscriptions concurrently.</li>
+      <li><strong>concatMap</strong> queues inner subscriptions and runs them in order.</li>
+    </ul>
+  </div>
+</section>
