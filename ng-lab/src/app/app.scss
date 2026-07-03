@@ -1,0 +1,46 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  background: #f6f7f9;
+  color: #1f2937;
+}
+
+.sidebar {
+  width: 240px;
+  padding: 24px;
+  background: #111827;
+  color: white;
+
+  h1 {
+    margin: 0 0 24px;
+    font-size: 24px;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  a {
+    color: #d1d5db;
+    text-decoration: none;
+    padding: 10px 12px;
+    border-radius: 6px;
+
+    &:hover {
+      background: #1f2937;
+      color: white;
+    }
+
+    &.active {
+      background: #2563eb;
+      color: white;
+    }
+  }
+}
+
+.content {
+  flex: 1;
+  padding: 32px;
+}
