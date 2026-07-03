@@ -1,1 +1,84 @@
-<p>forms-demo works!</p>
+<section class="page">
+  <h2>Reactive Forms Validation</h2>
+
+  <p>
+    This page demonstrates a typed reactive form with built-in and custom validation.
+  </p>
+
+  <form class="demo-card form" [formGroup]="form" (ngSubmit)="submit()">
+    <h3>Register</h3>
+
+    <label>
+      Name
+      <input type="text" formControlName="name" />
+    </label>
+
+    @if (form.controls.name.touched && form.controls.name.hasError('required')) {
+      <p class="error">Name is required.</p>
+    }
+
+    @if (form.controls.name.touched && form.controls.name.hasError('minlength')) {
+      <p class="error">Name must be at least 2 characters.</p>
+    }
+
+    <label>
+      Email
+      <input type="email" formControlName="email" />
+    </label>
+
+    @if (form.controls.email.touched && form.controls.email.hasError('required')) {
+      <p class="error">Email is required.</p>
+    }
+
+    @if (form.controls.email.touched && form.controls.email.hasError('email')) {
+      <p class="error">Enter a valid email address.</p>
+    }
+
+    <label>
+      Password
+      <input type="password" formControlName="password" />
+    </label>
+
+    @if (form.controls.password.touched && form.controls.password.hasError('required')) {
+      <p class="error">Password is required.</p>
+    }
+
+    @if (form.controls.password.touched && form.controls.password.hasError('minlength')) {
+      <p class="error">Password must be at least 6 characters.</p>
+    }
+
+    <label>
+      Confirm Password
+      <input type="password" formControlName="confirmPassword" />
+    </label>
+
+    @if (form.controls.confirmPassword.touched && form.controls.confirmPassword.hasError('required')) {
+      <p class="error">Please confirm your password.</p>
+    }
+
+    @if (form.touched && form.hasError('passwordsMismatch')) {
+      <p class="error">Passwords do not match.</p>
+    }
+
+    <div class="actions">
+      <button type="submit">Submit</button>
+      <button type="button" (click)="form.reset()">Reset</button>
+    </div>
+
+    <div class="status">
+      <p>Form status: {{ form.status }}</p>
+      <p>Form valid: {{ form.valid }}</p>
+      <p>Form touched: {{ form.touched }}</p>
+    </div>
+  </form>
+
+  <div class="notes">
+    <h3>Notes</h3>
+
+    <ul>
+      <li>Reactive forms are model-driven and defined in TypeScript.</li>
+      <li>Validators can be attached to individual controls or the whole form group.</li>
+      <li>Custom validators return either a validation error object or null.</li>
+    </ul>
+  </div>
+</section>
