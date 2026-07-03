@@ -1,1 +1,30 @@
-<p>standalone-demo works!</p>
+<section class="page">
+  <h2>Standalone Components</h2>
+
+  <p>
+    This page demonstrates how standalone components declare their own dependencies
+    directly in the component metadata.
+  </p>
+  <hr />
+  <div class="demo-card">
+    <app-status-card
+      title="No NgModule declaration"
+      description="This child component is imported directly by the page component."
+    />
+
+    <app-status-card
+      title="Local dependency list"
+      description="The parent component controls exactly which components, directives, and pipes it uses."
+    />
+  </div>
+
+  <div class="notes">
+    <h3>Notes</h3>
+
+    <ul>
+      <li>Standalone components do not need to be declared in an NgModule.</li>
+      <li>Dependencies are listed directly in the component's imports array.</li>
+      <li>Routes can lazy-load standalone components with loadComponent.</li>
+    </ul>
+  </div>
+</section>
