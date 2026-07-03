@@ -1,1 +1,32 @@
-<p>onpush-demo works!</p>
+<section class="page">
+  <h2>OnPush Change Detection</h2>
+
+  <p>
+    This page demonstrates why OnPush works best with immutable updates.
+  </p>
+
+  <div class="demo-card">
+    <h3>Parent Component</h3>
+
+    <p>Parent name: {{ user().name }}</p>
+    <p>Parent role: {{ user().role }}</p>
+
+    <div class="actions">
+      <button type="button" (click)="mutateUser()">Mutate Object</button>
+      <button type="button" (click)="replaceUser()">Replace Object</button>
+      <button type="button" (click)="resetUser()">Reset</button>
+    </div>
+
+    <app-user-card [user]="user()" />
+  </div>
+
+  <div class="notes">
+    <h3>Notes</h3>
+
+    <ul>
+      <li>OnPush skips component subtrees unless Angular has a reason to check them.</li>
+      <li>New input references are a common trigger for OnPush components.</li>
+      <li>Mutating an object keeps the same reference, so immutable updates are safer.</li>
+    </ul>
+  </div>
+</section>
