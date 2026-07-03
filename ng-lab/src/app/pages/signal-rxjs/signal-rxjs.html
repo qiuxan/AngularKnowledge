@@ -1,1 +1,50 @@
-<p>signal-rxjs works!</p>
+<section class="page">
+  <h2>Signal vs RxJS</h2>
+
+  <p>
+    This page shows a common split: signals manage local UI state,
+    while RxJS handles asynchronous event streams.
+  </p>
+
+  <div class="demo-card">
+    <h3>Search Demo</h3>
+
+    <label for="search">Search term</label>
+
+    <input
+      id="search"
+      type="text"
+      [ngModel]="searchText()"
+      (ngModelChange)="onSearchChange($event)"
+      placeholder="Try Angular, RxJS, Signals..."
+    />
+
+    <p>Current signal value: {{ searchText() }}</p>
+
+    @if (isLoading()) {
+      <p>Loading...</p>
+    }
+
+    @if (!isLoading() && results().length > 0) {
+      <ul>
+        @for (result of results(); track result) {
+          <li>{{ result }}</li>
+        }
+      </ul>
+    }
+
+    @if (!isLoading() && searchText().trim() && results().length === 0) {
+      <p>No results.</p>
+    }
+  </div>
+
+  <div class="notes">
+    <h3>Notes</h3>
+
+    <ul>
+      <li><strong>Signal</strong> is ideal for local synchronous UI state.</li>
+      <li><strong>RxJS</strong> is ideal for asynchronous streams and operators.</li>
+      <li><strong>switchMap</strong> cancels the previous async work when a new value arrives.</li>
+    </ul>
+  </div>
+</section>
