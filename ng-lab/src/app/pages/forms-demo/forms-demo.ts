@@ -1,5 +1,11 @@
-import { Component } from '@angular/core';
-import { AbstractControl, ReactiveFormsModule, ValidationErrors, Validators, NonNullableFormBuilder } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import {
+  AbstractControl,
+  ReactiveFormsModule,
+  ValidationErrors,
+  Validators,
+  NonNullableFormBuilder,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-forms-demo',
@@ -8,21 +14,18 @@ import { AbstractControl, ReactiveFormsModule, ValidationErrors, Validators, Non
   styleUrl: './forms-demo.scss',
 })
 export class FormsDemo {
-  form;
-
-  constructor(private FormBuilder: NonNullableFormBuilder) {
-    this.form = this.FormBuilder.group(
-      {
-        name: ['', [Validators.required, Validators.minLength(2)]],
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(6)]],
-        confirmPassword: ['', [Validators.required]],
-      },
-      {
-        validators: [this.passwordsMatchValidator],
-      },
-    );
-  }
+  private formBuilder = inject(NonNullableFormBuilder);
+  form = this.formBuilder.group(
+    {
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', [Validators.required]],
+    },
+    {
+      validators: [this.passwordsMatchValidator],
+    },
+  );
 
   submit() {
     if (this.form.invalid) {
