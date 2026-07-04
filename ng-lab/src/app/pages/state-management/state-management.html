@@ -1,9 +1,7 @@
 <section class="page">
   <h2>State Management</h2>
 
-  <p>
-    This page demonstrates different levels of state management in Angular.
-  </p>
+  <p>This page demonstrates different levels of state management in Angular.</p>
 
   <div class="demo-card">
     <h3>Local Component State</h3>
@@ -15,6 +13,19 @@
       <button type="button" (click)="decrement()">-1</button>
       <button type="button" (click)="increment()">+1</button>
       <button type="button" (click)="reset()">Reset</button>
+    </div>
+  </div>
+
+  <div class="demo-card">
+    <h3>Shared Service State</h3>
+
+    <p>Count: {{ sharedCount() }}</p>
+    <p>Double Count: {{ sharedDoubleCount() }}</p>
+
+    <div class="actions">
+      <button type="button" (click)="decrementShared()">-1</button>
+      <button type="button" (click)="incrementShared()">+1</button>
+      <button type="button" (click)="resetShared()">Reset</button>
     </div>
   </div>
 
