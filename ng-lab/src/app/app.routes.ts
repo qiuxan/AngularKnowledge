@@ -39,4 +39,9 @@ export const routes: Routes = [
     path: 'lazy-defer',
     loadComponent: () => import('./pages/lazy-defer/lazy-defer').then((m) => m.LazyDefer),
   },
+  {
+    path: 'state-management',
+    loadComponent: () =>
+      import('./pages/state-management/state-management').then((m) => m.StateManagement),
+  },
 ];
