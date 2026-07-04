@@ -1,1 +1,46 @@
-<p>lazy-defer works!</p>
+<section class="page">
+  <h2>Lazy Loading + &#64;defer</h2>
+
+  <p>
+    This page compares route-level lazy loading with template-level deferred loading.
+  </p>
+
+  <div class="demo-card">
+    <h3>Route Lazy Loading</h3>
+
+    <p>
+      This page is lazy-loaded by the router using loadComponent in app.routes.ts.
+    </p>
+
+    <pre><code>loadComponent: () =&gt; import('./pages/lazy-defer/lazy-defer')</code></pre>
+  </div>
+
+  <div class="demo-card">
+    <h3>Template Defer</h3>
+
+    <p>
+      The chart below is not rendered until the button is clicked.
+    </p>
+
+    <button type="button" (click)="showChart()">Load Chart</button>
+
+    @defer (when shouldShowChart()) {
+      <app-heavy-chart />
+    } @placeholder {
+      <p>Chart has not been loaded yet.</p>
+    } @loading {
+      <p>Loading chart...</p>
+    }
+  </div>
+
+  <div class="notes">
+    <h3>Notes</h3>
+
+    <ul>
+      <li><strong>loadComponent</strong> lazy-loads an entire route component.</li>
+      <li><strong>&#64;defer</strong> lazy-loads part of a template.</li>
+      <li><strong>&#64;placeholder</strong> shows before the deferred block starts loading.</li>
+      <li><strong>&#64;loading</strong> shows while the deferred block is loading.</li>
+    </ul>
+  </div>
+</section>

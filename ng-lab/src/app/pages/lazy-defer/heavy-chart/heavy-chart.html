@@ -1,0 +1,19 @@
+<article class="heavy-chart">
+  <h3>Heavy Chart Component</h3>
+
+  <p>
+    Imagine this component uses a large charting library or expensive rendering logic.
+  </p>
+
+  <div class="bars">
+    @for (item of data; track item.label) {
+      <div class="bar-row">
+        <span>{{ item.label }}</span>
+        <div class="bar-track">
+          <div class="bar-fill" [style.width.%]="item.value"></div>
+        </div>
+        <strong>{{ item.value }}%</strong>
+      </div>
+    }
+  </div>
+</article>
