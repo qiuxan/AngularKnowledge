@@ -44,4 +44,8 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/state-management/state-management').then((m) => m.StateManagement),
   },
+  {
+    path: 'ngrx-demo',
+    loadComponent: () => import('./pages/ngrx-demo/ngrx-demo').then((m) => m.NgrxDemo),
+  },
 ];
