@@ -1,1 +1,30 @@
-<p>state-management works!</p>
+<section class="page">
+  <h2>State Management</h2>
+
+  <p>
+    This page demonstrates different levels of state management in Angular.
+  </p>
+
+  <div class="demo-card">
+    <h3>Local Component State</h3>
+
+    <p>Count: {{ count() }}</p>
+    <p>Double Count: {{ doubleCount() }}</p>
+
+    <div class="actions">
+      <button type="button" (click)="decrement()">-1</button>
+      <button type="button" (click)="increment()">+1</button>
+      <button type="button" (click)="reset()">Reset</button>
+    </div>
+  </div>
+
+  <div class="notes">
+    <h3>Notes</h3>
+
+    <ul>
+      <li>Local state belongs to one component.</li>
+      <li>Signals are a good fit for local UI state.</li>
+      <li>Computed values are derived from existing state.</li>
+    </ul>
+  </div>
+</section>
