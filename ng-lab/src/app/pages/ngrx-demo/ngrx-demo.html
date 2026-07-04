@@ -1,1 +1,32 @@
-<p>ngrx-demo works!</p>
+<section class="page">
+  <h2>NgRx Store</h2>
+
+  <p>
+    This page demonstrates the basic NgRx flow: dispatch actions, update state with a reducer, and
+    read state with selectors.
+  </p>
+
+  <div class="demo-card">
+    <h3>Counter Store</h3>
+
+    <p>Count: {{ count$ | async }}</p>
+    <p>Double Count: {{ doubleCount$ | async }}</p>
+
+    <div class="actions">
+      <button type="button" (click)="decrement()">-1</button>
+      <button type="button" (click)="increment()">+1</button>
+      <button type="button" (click)="reset()">Reset</button>
+    </div>
+  </div>
+
+  <div class="notes">
+    <h3>Notes</h3>
+
+    <ul>
+      <li><strong>Action</strong> describes what happened.</li>
+      <li><strong>Reducer</strong> calculates the next state.</li>
+      <li><strong>Selector</strong> reads state or derived state.</li>
+      <li><strong>Store</strong> holds application state.</li>
+    </ul>
+  </div>
+</section>
