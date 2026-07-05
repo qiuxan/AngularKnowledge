@@ -53,4 +53,8 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/protected-profile/protected-profile').then((m) => m.ProtectedProfile),
   },
+  {
+    path: 'ngrx-async',
+    loadComponent: () => import('./pages/ngrx-async/ngrx-async').then((m) => m.NgrxAsync),
+  },
 ];
