@@ -1,1 +1,55 @@
-<p>ngrx-async works!</p>
+<section class="page">
+  <h2>NgRx Async Effects</h2>
+
+  <p>
+    This page demonstrates how NgRx handles async API calls with actions,
+    effects, reducers, and selectors.
+  </p>
+
+  <div class="demo-card">
+    <h3>Fake Login Flow</h3>
+
+    <div class="actions">
+      <button type="button" (click)="login()" [disabled]="loading$ | async">
+        Login
+      </button>
+
+      <button type="button" (click)="loginWithWrongPassword()" [disabled]="loading$ | async">
+        Login With Wrong Password
+      </button>
+
+      <button type="button" (click)="logout()">Logout</button>
+    </div>
+
+    @if (loading$ | async) {
+      <p>Loading...</p>
+    }
+
+    @if (error$ | async; as error) {
+      <p class="error">{{ error }}</p>
+    }
+
+    @if (user$ | async; as user) {
+      <p>User: {{ user.name }}</p>
+      <p>Email: {{ user.email }}</p>
+      <p>Role: {{ user.role }}</p>
+    }
+
+    @if (token$ | async; as token) {
+      <p>JWT:</p>
+      <pre><code>{{ token }}</code></pre>
+    }
+  </div>
+
+  <div class="notes">
+    <h3>Interview Notes</h3>
+
+    <ul>
+      <li><strong>login</strong> action represents the start of the API request.</li>
+      <li><strong>AuthEffects</strong> calls POST /api/login.</li>
+      <li><strong>loginSuccess</strong> stores the token and user.</li>
+      <li><strong>loginFailure</strong> stores the error message.</li>
+      <li><strong>Selectors</strong> expose loading, user, token, and error state to the component.</li>
+    </ul>
+  </div>
+</section>
