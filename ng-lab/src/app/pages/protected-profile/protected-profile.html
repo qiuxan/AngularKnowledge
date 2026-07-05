@@ -1,1 +1,45 @@
-<p>protected-profile works!</p>
+<section class="page">
+  <h2>Protected Profile</h2>
+
+  <p>
+    This page simulates login and stores a hard-coded JWT in localStorage.
+  </p>
+
+  <div class="demo-card">
+    <h3>Fake Login</h3>
+
+    <p>Email: demo@example.com</p>
+    <p>Password: password</p>
+
+    <div class="actions">
+      <button type="button" (click)="login()" [disabled]="loading()">Login</button>
+      <button type="button" (click)="logout()">Logout</button>
+    </div>
+
+    @if (loading()) {
+      <p>Logging in...</p>
+    }
+
+    @if (error()) {
+      <p class="error">{{ error() }}</p>
+    }
+
+    @if (token()) {
+      <p>User: {{ userName() || 'Stored session' }}</p>
+      <p>JWT saved in localStorage:</p>
+      <pre><code>{{ token() }}</code></pre>
+    } @else {
+      <p>No JWT stored yet.</p>
+    }
+  </div>
+
+  <div class="notes">
+    <h3>Interview Notes</h3>
+
+    <ul>
+      <li>Login calls a fake API endpoint through Angular HttpClient.</li>
+      <li>The fake backend is implemented with an HTTP interceptor.</li>
+      <li>The JWT is stored in localStorage for this demo.</li>
+    </ul>
+  </div>
+</section>

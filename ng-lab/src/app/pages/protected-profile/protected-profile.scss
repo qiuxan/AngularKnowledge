@@ -1,0 +1,17 @@
+.actions {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.error {
+  color: #b91c1c;
+}
+
+pre {
+  overflow-x: auto;
+  padding: 12px;
+  border-radius: 8px;
+  background: #111827;
+  color: #f9fafb;
+}
