@@ -48,4 +48,9 @@ export const routes: Routes = [
     path: 'ngrx-demo',
     loadComponent: () => import('./pages/ngrx-demo/ngrx-demo').then((m) => m.NgrxDemo),
   },
+  {
+    path: 'protected-profile',
+    loadComponent: () =>
+      import('./pages/protected-profile/protected-profile').then((m) => m.ProtectedProfile),
+  },
 ];

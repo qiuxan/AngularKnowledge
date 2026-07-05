@@ -2,8 +2,9 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/
 import { provideRouter } from '@angular/router';
 import { provideStore } from '@ngrx/store';
 import { counterReducer } from './state/counter.reducer';
-
+import { fakeBackendInterceptor } from './shared/fake-backend.interceptor';
 import { routes } from './app.routes';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,5 +13,6 @@ export const appConfig: ApplicationConfig = {
     provideStore({
       counter: counterReducer,
     }),
+    provideHttpClient(withInterceptors([fakeBackendInterceptor])),
   ],
 };
